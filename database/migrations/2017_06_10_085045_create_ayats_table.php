@@ -15,9 +15,11 @@ class CreateAyatsTable extends Migration
     {
         Schema::create('ayats', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('number')->unique();
+            $table->unsignedInteger('number');
             $table->unsignedInteger('surat_number');
-            $table->timestamps();
+            $table->text('text');
+
+            $table->unique(['number', 'surat_number']);
         });
     }
 
