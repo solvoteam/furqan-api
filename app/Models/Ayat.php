@@ -13,8 +13,8 @@ class Ayat extends Model
         return $this->hasMany(AyatTranslation::class);
     }
 
-    public function translation($translation_id)
+    public function translation($translation_id = 1)
     {
-        return $this->translations()->whereId($translation_id)->firstOrFail();
+        return $this->hasOne(AyatTranslation::class)->where('translation_id', $translation_id);
     }
 }
