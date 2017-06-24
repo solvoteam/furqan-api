@@ -12,4 +12,4 @@ You should use following URL template for accessing data:
 
 | Resource | Parameters   |
 |----------|--------------|
-|  ayat    | surat_number |
+|  ayat    | surat_number, limit, offset |

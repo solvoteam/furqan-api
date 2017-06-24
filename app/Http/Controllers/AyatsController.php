@@ -20,6 +20,14 @@ class AyatsController extends Controller
             $ayats->where('surat_number', $request['surat_number']);
         }
 
+        if ($request->has('offset')) {
+            $ayats->offset($request['offset'])->limit(PHP_INT_MAX);
+        }
+
+        if ($request->has('limit')) {
+            $ayats->limit($request['limit']);
+        }
+
         return response()->json($ayats->get());
     }
 
