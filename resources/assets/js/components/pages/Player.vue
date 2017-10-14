@@ -18,6 +18,7 @@
             return {
                 surat: null,
                 current_ayat: 1,
+                audio: null,
             };
         },
         mounted() {
@@ -33,14 +34,17 @@
                     that.playAyat(that.surat[that.current_index]);
                 });
             }
-            console.log(this.$route.params.number);
         },
         methods: {
             playAyat(ayat) {
                 let that = this;
-                let audio = new Audio(ayat.audio);
-                audio.play();
-                audio.onended = () => {
+                that.audio = new Audio(ayat.audio);
+                that.audio.play();
+                that.audio.onended = () => {
+                    if (!that.surat[that.current_index + 1]) {
+                        return;
+                    }
+
                     that.current_ayat++;
                     that.playAyat(that.surat[that.current_index]);
                 };
@@ -50,6 +54,12 @@
             current_index() {
                 return this.current_ayat - 1;
             },
+        },
+        beforeDestroy() {
+            if (this.audio instanceof Audio) {
+                this.audio.pause();
+                this.audio = null;
+            }
         },
     }
 </script>

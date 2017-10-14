@@ -14,6 +14,7 @@
 
 body{
   font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
 }
 
 .header-nav {
@@ -79,5 +80,22 @@ body{
   &__original{
     font-size: 48px;
     margin-bottom: 60px;
+  }
+}
+
+footer{
+  background: $c_darkblue;
+  color: $c_darkgray;
+  padding: 38px 0;
+  margin-top: 72px;
+}
+
+.footer-nav{
+  float: right;
+  a{
+    color: $c_darkgray;
+    &:not(:last-of-type) {
+      margin-right: 30px;
+    }
   }
 }

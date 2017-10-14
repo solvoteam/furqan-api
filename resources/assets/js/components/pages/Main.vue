@@ -9,8 +9,16 @@
                 <input type="text" placeholder="Поиск..." class="search-form__input" v-model="search">
             </form>
         </div>
-
         <surats-list :surats="filtered_surats" :search="search"></surats-list>
+        <footer>
+            <div class="container">
+                &copy; 2017 Furqan
+                <nav class="footer-nav">
+                    <router-link to="/about">О нас</router-link>
+                    <router-link to="/contact">Связаться</router-link>
+                </nav>
+            </div>
+        </footer>
     </div>
 </template>
 
